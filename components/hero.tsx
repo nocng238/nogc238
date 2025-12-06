@@ -1,42 +1,67 @@
 import Image from 'next/image';
 import React from 'react';
+import { Button } from '@/components/ui/button';
+import { BackgroundLines } from '@/components/ui/background-lines';
+import { TypewriterEffect } from '@/components/ui/typewriter-effect';
+import { Button as MovingBorderButton } from './ui/moving-border';
 
 const Hero: React.FC = () => {
+  const words = [
+    {
+      text: "Hello,",
+      className: "text-foreground",
+    },
+    {
+      text: "I",
+      className: "text-foreground",
+    },
+    {
+      text: "am",
+      className: "text-foreground",
+    },
+    {
+      text: "Noah",
+      className: "text-primary",
+    },
+  ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-dark">
-      {/* Background decoration */}
+    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#151515] skew-x-[-10deg] translate-x-20 hidden lg:block z-0 pointer-events-none"></div>
 
-      <div className="container mx-auto px-6 relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between">
+      <div className="container mx-auto px-6 relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 md:gap-0">
 
-        {/* Left Content */}
-        <div className="w-full lg:w-1/2 text-center lg:text-left mt-12 lg:mt-0">
-          <div className="mb-4 inline-block px-4 py-1 border border-gray-600 rounded-full bg-darker/50 backdrop-blur-sm">
-            <span className="text-primary text-sm tracking-widest uppercase font-bold">Frontend & Kindness Engineer</span>
+        <BackgroundLines className="w-full lg:w-1/2 text-center lg:text-left mt-12 lg:mt-0 relative bg-transparent flex flex-col items-center md:items-start justify-center">
+          <div className="z-20">
+            <MovingBorderButton borderRadius='1.75rem' className='whitespace-nowrap text-primary text-sm font-bold'>
+              Software Engineer
+            </MovingBorderButton>
+            <div className="my-6">
+              <TypewriterEffect words={words} className="text-4xl md:text-6xl font-bold text-center md:text-left" />
+            </div>
+
+            <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-8">
+              A Fullstack Developer
+            </h2>
+            <p className="text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
+              Hopefully my &quot;hilarious&quot; portfolio brings a smile to your face!
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+              <Button variant="outline" size="lg" asChild>
+                <a href="#portfolio" className="tracking-wide uppercase">
+                  See My Work
+                </a>
+              </Button>
+              <Button size="lg" asChild>
+                <a href="#contact" className="tracking-wide uppercase">
+                  Say Hello
+                </a>
+              </Button>
+            </div>
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-accent-foreground leading-tight mb-4">
-            Hello, I am <span className="text-primary">Noah</span>
-          </h1>
-          <h2 className="text-2xl md:text-3xl text-gray-400 font-light mb-8">
-            Senior "Nice Guy&quot; Developer
-          </h2>
-          <p className="text-gray-400 mb-10 max-w-lg mx-auto lg:mx-0 leading-relaxed">
-            I write clean code, but more importantly, I bring good vibes.
-            Building scalable applications and maintaining a 100% smile uptime.
-          </p>
+        </BackgroundLines>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-            <a href="#portfolio" className="px-8 py-3 bg-transparent border-2 border-white text-white font-bold hover:bg-white hover:text-dark transition-all duration-300 tracking-wide uppercase">
-              See My Work
-            </a>
-            <a href="#contact" className="px-8 py-3 bg-primary text-dark font-bold border-2 border-primary hover:bg-transparent hover:text-primary transition-all duration-300 tracking-wide uppercase">
-              Say Hello
-            </a>
-          </div>
-        </div>
-
-        {/* Right Image */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative">
           {/* The Halo Effect matching your image style */}
           <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center">
@@ -53,10 +78,6 @@ const Hero: React.FC = () => {
               src="/cool-avatar.png"
               alt="Noah Avatar"
               className="relative z-10 w-full h-full object-cover rounded-full border-4 border-primary shadow-2xl"
-              style={{
-                // If you use your PNG cutout, remove 'rounded-full' and 'object-cover' and use 'object-contain'
-                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
-              }}
               width={450}
               height={450}
             />
@@ -67,8 +88,8 @@ const Hero: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 

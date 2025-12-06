@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,11 +22,18 @@ const Navbar: React.FC = () => {
   ];
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-darker/95 backdrop-blur-sm py-4 shadow-lg' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-background/95 backdrop-blur-sm py-4 shadow-lg' : 'bg-transparent py-6'}`}>
       <div className="container mx-auto px-6 flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-2xl font-bold tracking-widest text-white border-2 border-primary p-2">
-          DEV<span className="text-primary">FOLIO</span>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/logo-2.png"
+            alt="Logo"
+            width={150}
+            height={50}
+            className="h-14 w-auto object-contain"
+            priority
+          />
         </a>
 
         {/* Desktop Menu */}
@@ -34,7 +42,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-white hover:text-primary transition-colors text-sm uppercase tracking-wide font-medium"
+              className="text-foreground hover:text-primary transition-colors text-sm uppercase tracking-wide font-medium"
             >
               {link.name}
             </a>
@@ -43,7 +51,7 @@ const Navbar: React.FC = () => {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-white focus:outline-none"
+          className="md:hidden text-foreground focus:outline-none"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -58,13 +66,13 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-darker border-t border-gray-800 shadow-xl">
+        <div className="md:hidden absolute top-full left-0 w-full bg-card border-t border-border shadow-xl">
           <div className="flex flex-col p-6 space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-white hover:text-primary text-center py-2"
+                className="text-foreground hover:text-primary text-center py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

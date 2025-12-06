@@ -47,10 +47,10 @@ const ChatWidget: React.FC = () => {
       {/* Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${isOpen ? 'bg-gray-700 rotate-90' : 'bg-primary animate-bounce'}`}
+        className={`fixed bottom-8 right-8 z-50 p-4 rounded-full shadow-2xl transition-all duration-300 hover:scale-110 ${isOpen ? 'bg-card rotate-90' : 'bg-primary animate-bounce'}`}
       >
         {isOpen ? (
-          <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg className="w-6 h-6 text-foreground" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
           </svg>
         ) : (
@@ -62,15 +62,15 @@ const ChatWidget: React.FC = () => {
 
       {/* Chat Window */}
       <div
-        className={`fixed bottom-24 right-8 z-40 w-80 md:w-96 bg-darker border border-gray-800 rounded-2xl shadow-2xl transform transition-all duration-300 origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
+        className={`fixed bottom-24 right-8 z-40 w-80 md:w-96 bg-card border border-border rounded-2xl shadow-2xl transform transition-all duration-300 origin-bottom-right ${isOpen ? 'scale-100 opacity-100' : 'scale-0 opacity-0 pointer-events-none'}`}
       >
         {/* Header */}
-        <div className="bg-primary/10 p-4 rounded-t-2xl border-b border-gray-800 flex items-center justify-between">
+        <div className="bg-primary/10 p-4 rounded-t-2xl border-b border-border flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <h3 className="font-bold text-white">DevBot AI</h3>
+            <h3 className="font-bold text-foreground">DevBot AI</h3>
           </div>
-          <span className="text-xs text-gray-500 bg-black/20 px-2 py-1 rounded">Gemini 2.5 Flash</span>
+          <span className="text-xs text-muted-foreground bg-background px-2 py-1 rounded">Gemini 2.5 Flash</span>
         </div>
 
         {/* Messages */}
@@ -79,9 +79,9 @@ const ChatWidget: React.FC = () => {
             <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
               <div
                 className={`max-w-[80%] p-3 rounded-2xl text-sm leading-relaxed ${msg.role === 'user'
-                  ? 'bg-primary text-dark font-medium rounded-tr-none'
-                  : 'bg-gray-800 text-gray-200 rounded-tl-none border border-gray-700'
-                  } ${msg.isError ? 'bg-red-900/50 text-red-200 border-red-800' : ''}`}
+                  ? 'bg-primary text-primary-foreground font-medium rounded-tr-none'
+                  : 'bg-muted text-foreground rounded-tl-none border border-border'
+                  } ${msg.isError ? 'bg-destructive/50 text-destructive-foreground border-destructive' : ''}`}
               >
                 {msg.text}
               </div>
@@ -107,12 +107,12 @@ const ChatWidget: React.FC = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about my experience..."
-              className="w-full bg-[#0a0a0a] text-white rounded-full py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-gray-800 placeholder-gray-600 text-sm"
+              className="w-full bg-background text-foreground rounded-full py-3 px-4 pr-12 focus:outline-none focus:ring-2 focus:ring-primary/50 border border-border placeholder-muted-foreground text-sm"
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 bg-primary rounded-full text-dark hover:bg-white transition-colors disabled:opacity-50"
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 p-1.5 bg-primary rounded-full text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
