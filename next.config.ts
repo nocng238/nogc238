@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
         hostname: 'picsum.photos',
       }
     ]
-  }
+  },
 };
 
 export default nextConfig;
