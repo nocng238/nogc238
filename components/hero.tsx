@@ -2,7 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { BackgroundLines } from '@/components/ui/background-lines';
-import { TypewriterEffect } from '@/components/ui/typewriter-effect';
+import { TypewriterEffectSmooth } from '@/components/ui/typewriter-effect';
 import { Button as MovingBorderButton } from './ui/moving-border';
 
 const Hero: React.FC = () => {
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               Software Engineer
             </MovingBorderButton>
             <div className="my-6">
-              <TypewriterEffect words={words} className="text-4xl md:text-6xl font-bold text-center md:text-left" />
+              <TypewriterEffectSmooth words={words} className="text-4xl md:text-6xl font-bold text-center md:text-left" />
             </div>
 
             <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-8">
@@ -67,24 +67,23 @@ const Hero: React.FC = () => {
           <div className="relative w-[300px] h-[300px] md:w-[450px] md:h-[450px] flex items-center justify-center">
 
             {/* Radial Sunburst / Halo Background */}
-            <div className="absolute inset-0 rounded-full bg-linear-to-r from-primary/40 to-transparent blur-2xl scale-125 animate-pulse"></div>
+            <div className="absolute inset-0 rounded-full bg-linear-to-r from-yellow-500/40 to-transparent blur-2xl scale-125 animate-pulse"></div>
 
             {/* Spiky Halo Effect (CSS simulation of the sun rays in your image) */}
             <div className="absolute w-full h-full rounded-full border-20 border-dotted border-primary/20 animate-[spin_10s_linear_infinite]"></div>
-            <div className="absolute w-[110%] h-[110%] rounded-full border-2 border-primary/30 opacity-50"></div>
+            <div className="absolute w-[110%] h-[110%] rounded-full border-2 border-yellow-500/30 opacity-50"></div>
 
             {/* Image Container */}
             <Image
               src="/cool-avatar.png"
               alt="Noah Avatar"
-              className="relative z-10 w-full h-full object-cover rounded-full border-4 border-primary shadow-2xl"
+              className="relative z-10 w-full h-full object-cover rounded-full border-4 border-yellow-500 shadow-2xl"
               width={450}
               height={450}
             />
 
             {/* Overlay helpful text for the user */}
             <div className="absolute -bottom-10 left-0 right-0 text-center z-20 opacity-0 hover:opacity-100 transition-opacity bg-black/80 text-xs text-white p-2 rounded">
-              (Use your halo image here!)
             </div>
           </div>
         </div>
