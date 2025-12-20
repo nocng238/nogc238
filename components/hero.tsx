@@ -26,7 +26,7 @@ const Hero: React.FC = () => {
   ];
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
+    <section id="about" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-background">
       <div className="absolute top-0 right-0 w-1/2 h-full bg-[#151515] skew-x-[-10deg] translate-x-20 hidden lg:block z-0 pointer-events-none"></div>
 
       <div className="container mx-auto px-6 relative z-10 flex flex-col-reverse lg:flex-row items-center justify-between gap-10 md:gap-0">
@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
               Software Engineer
             </MovingBorderButton>
             <div className="my-6">
-              <TypewriterEffectSmooth words={words} className="text-4xl md:text-6xl font-bold text-center md:text-left" />
+              <TypewriterEffectSmooth words={words} className="text-4xl md:text-6xl font-bold justify-center md:justify-start" />
             </div>
 
             <h2 className="text-2xl md:text-3xl text-muted-foreground font-light mb-8">
