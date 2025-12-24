@@ -10,9 +10,6 @@ const Skills: React.FC = () => {
             MY &quot;SKILLS&quot;
             <span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-16 h-1 bg-primary"></span>
           </h2>
-          <p className="text-muted-foreground mt-4 max-w-xl mx-auto italic">
-            &quot;Kindness is the only skill that i proud of.&ldquo; - Noah
-          </p>
         </div>
 
         {/* Skills Image */}
