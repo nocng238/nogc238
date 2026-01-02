@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/lib/utils';
+import UIBuster from './hero/ui-buster';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -59,6 +60,9 @@ const Navbar: React.FC = () => {
             priority
           />
         </a>
+        {/* <div>
+          <UIBuster />
+        </div> */}
 
         {/* Desktop Menu */}
         <div className="hidden md:flex space-x-8">
