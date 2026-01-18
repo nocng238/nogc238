@@ -6,7 +6,6 @@ import Portfolio from '@/components/portfolio';
 import Contact from '@/components/contact';
 import Footer from '@/components/footer';
 // import Experiences from '@/components/experiences';
-import UIBuster from '@/components/hero/ui-buster';
 
 const Page: React.FC = () => {
   return (
@@ -18,9 +17,9 @@ const Page: React.FC = () => {
       {/* <Experiences /> */}
       <Contact />
       <Footer />
-      <div className='fixed -bottom-16 -left-18 z-1000'>
+      {/* <div className='fixed -bottom-16 -left-18 z-1000'>
         <UIBuster />
-      </div>
+      </div> */}
       {/* <ChatWidget /> */}
     </div>
   );
